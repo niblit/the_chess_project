@@ -4,7 +4,7 @@ pub enum Outcome {
     Timeout,
     Stalemate,
     InsufficientMaterial,
-    FiftyMove_Rule,
+    FiftyMoveRule,
     ThreefoldRepetition,
     DrawByAgreement,
 }

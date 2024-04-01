@@ -15,6 +15,20 @@ impl CastlingRights {
         }
     }
 
+    pub fn custom_start(
+        white_king_side: bool,
+        white_queen_side: bool,
+        black_king_side: bool,
+        black_queen_side: bool,
+    ) -> Self {
+        Self {
+            WhiteKingSide: white_king_side,
+            WhiteQueenSide: white_queen_side,
+            BlackKingSide: black_king_side,
+            BlackQueenSide: black_queen_side,
+        }
+    }
+
     pub fn get_white_king_side(&self) -> bool {
         self.WhiteKingSide
     }

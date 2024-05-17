@@ -1,12 +1,13 @@
 use crate::components::{piece_type::PieceType, team::Team};
+use std::fmt;
 
 pub struct Piece {
     kind: PieceType,
     color: Team,
 }
 
-impl ToString for Piece {
-    fn to_string(&self) -> String {
-        format!("{}{}", self.color.to_string(), self.kind.to_string())
+impl fmt::Display for Piece {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}{}", self.color, self.kind)
     }
 }

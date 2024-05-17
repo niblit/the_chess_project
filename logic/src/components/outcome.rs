@@ -33,7 +33,7 @@ impl Outcome {
             Outcome::InsufficientMaterial => String::from(INSUFFICIENT_MATERIAL),
             Outcome::FiftyMoveRule => String::from(FIFTY_MOVE_RULE),
             Outcome::ThreefoldRepetition => String::from(THREEFOLD_REPETITION),
-            Outcome::DrawByAgreement => String::from(BY_AGREEMENT)
+            Outcome::DrawByAgreement => String::from(BY_AGREEMENT),
         }
     }
 }
@@ -68,19 +68,43 @@ mod tests {
 
     #[test]
     fn test_as_sentence() {
-        assert_eq!(Outcome::Checkmate(Team::Black).as_sentence(), format!("{} {}", Team::Black.as_sentence(), CHECKMATE));
-        assert_eq!(Outcome::Checkmate(Team::White).as_sentence(), format!("{} {}", Team::White.as_sentence(), CHECKMATE));
+        assert_eq!(
+            Outcome::Checkmate(Team::Black).as_sentence(),
+            format!("{} {}", Team::Black.as_sentence(), CHECKMATE)
+        );
+        assert_eq!(
+            Outcome::Checkmate(Team::White).as_sentence(),
+            format!("{} {}", Team::White.as_sentence(), CHECKMATE)
+        );
 
-        assert_eq!(Outcome::Resignation(Team::White).as_sentence(), format!("{} {}", Team::White.as_sentence(), RESIGNATION));
-        assert_eq!(Outcome::Resignation(Team::Black).as_sentence(), format!("{} {}", Team::Black.as_sentence(), RESIGNATION));
+        assert_eq!(
+            Outcome::Resignation(Team::White).as_sentence(),
+            format!("{} {}", Team::White.as_sentence(), RESIGNATION)
+        );
+        assert_eq!(
+            Outcome::Resignation(Team::Black).as_sentence(),
+            format!("{} {}", Team::Black.as_sentence(), RESIGNATION)
+        );
 
-        assert_eq!(Outcome::Timeout(Team::White).as_sentence(), format!("{} {}", Team::White.as_sentence(), TIMEOUT));
-        assert_eq!(Outcome::Timeout(Team::Black).as_sentence(), format!("{} {}", Team::Black.as_sentence(), TIMEOUT));
+        assert_eq!(
+            Outcome::Timeout(Team::White).as_sentence(),
+            format!("{} {}", Team::White.as_sentence(), TIMEOUT)
+        );
+        assert_eq!(
+            Outcome::Timeout(Team::Black).as_sentence(),
+            format!("{} {}", Team::Black.as_sentence(), TIMEOUT)
+        );
 
         assert_eq!(Outcome::Stalemate.as_sentence(), STALEMATE);
-        assert_eq!(Outcome::InsufficientMaterial.as_sentence(), INSUFFICIENT_MATERIAL);
+        assert_eq!(
+            Outcome::InsufficientMaterial.as_sentence(),
+            INSUFFICIENT_MATERIAL
+        );
         assert_eq!(Outcome::FiftyMoveRule.as_sentence(), FIFTY_MOVE_RULE);
-        assert_eq!(Outcome::ThreefoldRepetition.as_sentence(), THREEFOLD_REPETITION);
+        assert_eq!(
+            Outcome::ThreefoldRepetition.as_sentence(),
+            THREEFOLD_REPETITION
+        );
         assert_eq!(Outcome::DrawByAgreement.as_sentence(), BY_AGREEMENT);
     }
 
@@ -89,8 +113,14 @@ mod tests {
         assert_eq!(format!("{}", Outcome::Checkmate(Team::Black)), BLACK_SHORT);
         assert_eq!(format!("{}", Outcome::Checkmate(Team::White)), WHITE_SHORT);
 
-        assert_eq!(format!("{}", Outcome::Resignation(Team::Black)), BLACK_SHORT);
-        assert_eq!(format!("{}", Outcome::Resignation(Team::White)), WHITE_SHORT);
+        assert_eq!(
+            format!("{}", Outcome::Resignation(Team::Black)),
+            BLACK_SHORT
+        );
+        assert_eq!(
+            format!("{}", Outcome::Resignation(Team::White)),
+            WHITE_SHORT
+        );
 
         assert_eq!(format!("{}", Outcome::Timeout(Team::Black)), BLACK_SHORT);
         assert_eq!(format!("{}", Outcome::Timeout(Team::White)), WHITE_SHORT);

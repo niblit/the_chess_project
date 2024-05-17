@@ -7,7 +7,23 @@ My intention for this project is to create a good resource for beginners to ches
 
 I have actually finished a chess game program before, in the ```niblit/chess``` repo, but honestly the code quality is not great, there are no comments or docs, and the UI code is awful, so I am creating this second version from the ground up to make it cleaner and (hopefully) understandable for everyone.<br>
 
+## How to run it
+- [Install rust](https://www.rust-lang.org/tools/install "rust-lang.org")
+- Clone this repo
+  - ```git clone https://github.com/niblit/TheChessProject```
+- Run the project
+  - ```cargo run```
+
+## Project structure
+The project is divided in crates, managed by cargo workspaces, I do it this way to have a clear distinction between UI and Game Logic code (and their dependencies).<br>
+
 ***
+
+Efectively, the project contains a folder for each intention:
+- ```logic```: contains everything needed to keep track of a complete chess game, **this is the core part of the project**.
+- ```ui```: **TODO!** contains everything needed to play the game on your screen.
+- ```tui```: **TODO!** contains everything needed to play the game on your terminal.
+- ```engine```: **TODO!** contains everything needed to find the best move at a given position.
 
 ## Game representation
 To keep track of a chess game, you need a lot of components:<br>
@@ -16,7 +32,7 @@ To keep track of a chess game, you need a lot of components:<br>
 
     > Location: ```logic/src/components/team.rs```<br>
 
-    Using an enum, containig black and white colors, this will be used for piece representation as well as keeping track the player's turn.
+    Using an enum, containing black and white colors, this will be used for piece representation as well as keeping track of the player's turn.
 
 - Piece type
 

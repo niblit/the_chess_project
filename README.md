@@ -32,7 +32,7 @@ To keep track of a chess game, you need a lot of components:<br>
 
     > Location: ```logic/src/components/team.rs```<br>
 
-    Using an enum, containing black and white colors, this will be used for piece representation as well as keeping track of the player's turn.
+    Using an enum containing black and white colors, this will be used for piece representation as well as keeping track of the player's turn.
 
 - Piece type
 
@@ -50,13 +50,13 @@ To keep track of a chess game, you need a lot of components:<br>
 
     > Location: ```logic/src/components/piece.rs```<br>
 
-    Using an struct, containing both team and piece type enums, this is the complete piece representation as position will be stored implicitly in the board.
+    Using an struct containing both team and piece type enums, this is the complete piece representation as position will be stored implicitly in the board.
 
 - Game outcomes:
 
     > Location: ```logic/src/components/outcome.rs```<br>
 
-    This is, to the best of my knowledge, all posible ways a chess game can end, I am using an enum to represent it, The three non-drawing outcomes hold the player that won the game:
+    This is, to the best of my knowledge, all posible ways a chess game can end, I am using an enum to represent it; the three non-drawing outcomes hold the player that won the game:
     - With a winning side
       - Checkmate
       - Resignation
@@ -70,4 +70,4 @@ To keep track of a chess game, you need a lot of components:<br>
 
 - Board representation:
 
-    **TODO:** using a two dimensional array of ```Option<Piece>``` where ```None``` is an empty square and ```Some(Piece)``` is, well, a piece in the board, this is not the most efficient way to represent it, but I will keep it this way because is easier to understand and fairly straight forward to implement.
+    **TODO:** using a two dimensional array of ```Option<Piece>``` where ```None``` is an empty square and ```Some(Piece)``` is, well, a piece in the board; this is not the most efficient way to represent it, but I will keep it like this because it's easier to understand and fairly straight forward to implement.

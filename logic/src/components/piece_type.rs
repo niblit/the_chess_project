@@ -1,3 +1,5 @@
+use std::fmt;
+
 pub enum PieceType {
     King,
     Queen,
@@ -7,15 +9,37 @@ pub enum PieceType {
     Pawn,
 }
 
-impl ToString for PieceType {
-    fn to_string(&self) -> String {
+const KING_SHORT: &str = "k";
+const QUEEN_SHORT: &str = "q";
+const ROOK_SHORT: &str = "r";
+const BISHOP_SHORT: &str = "b";
+const KNIGHT_SHORT: &str = "n";
+const PAWN_SHORT: &str = "p";
+
+impl fmt::Display for PieceType {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            PieceType::King => String::from("k"),
-            PieceType::Queen => String::from("q"),
-            PieceType::Rook => String::from("r"),
-            PieceType::Bishop => String::from("b"),
-            PieceType::Knight => String::from("n"),
-            PieceType::Pawn => String::from("p"),
+            PieceType::King => write!(f, "{}", KING_SHORT),
+            PieceType::Queen => write!(f, "{}", QUEEN_SHORT),
+            PieceType::Rook => write!(f, "{}", ROOK_SHORT),
+            PieceType::Bishop => write!(f, "{}", BISHOP_SHORT),
+            PieceType::Knight => write!(f, "{}", KNIGHT_SHORT),
+            PieceType::Pawn => write!(f, "{}", PAWN_SHORT),
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_display() {
+        assert_eq!(format!("{}", PieceType::King), KING_SHORT);
+        assert_eq!(format!("{}", PieceType::Queen), QUEEN_SHORT);
+        assert_eq!(format!("{}", PieceType::Rook), ROOK_SHORT);
+        assert_eq!(format!("{}", PieceType::Bishop), BISHOP_SHORT);
+        assert_eq!(format!("{}", PieceType::Knight), KNIGHT_SHORT);
+        assert_eq!(format!("{}", PieceType::Pawn), PAWN_SHORT);
     }
 }

@@ -32,8 +32,7 @@ impl MoveCounter {
 
         if last_fiftymove_rule > 0u128 {
             self.update_last_fiftymove_rule(last_fiftymove_rule.saturating_sub(1));
-        }
-        else if self.fiftymove_rule.len() > 1 {
+        } else if self.fiftymove_rule.len() > 1 {
             self.fiftymove_rule.pop();
         }
     }

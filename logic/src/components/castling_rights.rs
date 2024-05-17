@@ -1,17 +1,17 @@
 pub struct CastlingRights {
-    WhiteKingSide: bool,
-    WhiteQueenSide: bool,
-    BlackKingSide: bool,
-    BlackQueenSide: bool,
+    white_king_side: bool,
+    white_queen_side: bool,
+    black_king_side: bool,
+    black_queen_side: bool,
 }
 
 impl CastlingRights {
     pub fn new() -> Self {
         Self {
-            WhiteKingSide: true,
-            WhiteQueenSide: true,
-            BlackKingSide: true,
-            BlackQueenSide: true,
+            white_king_side: true,
+            white_queen_side: true,
+            black_king_side: true,
+            black_queen_side: true,
         }
     }
 
@@ -22,42 +22,42 @@ impl CastlingRights {
         black_queen_side: bool,
     ) -> Self {
         Self {
-            WhiteKingSide: white_king_side,
-            WhiteQueenSide: white_queen_side,
-            BlackKingSide: black_king_side,
-            BlackQueenSide: black_queen_side,
+            white_king_side,
+            white_queen_side,
+            black_king_side,
+            black_queen_side,
         }
     }
 
     pub fn get_white_king_side(&self) -> bool {
-        self.WhiteKingSide
+        self.white_king_side
     }
 
     pub fn remove_white_king_side(&mut self) {
-        self.WhiteKingSide = false;
+        self.white_king_side = false;
     }
 
     pub fn get_white_queen_side(&self) -> bool {
-        self.WhiteQueenSide
+        self.white_queen_side
     }
 
     pub fn remove_white_queen_side(&mut self) {
-        self.WhiteQueenSide = false;
+        self.white_queen_side = false;
     }
 
     pub fn get_black_king_side(&self) -> bool {
-        self.BlackKingSide
+        self.black_king_side
     }
 
     pub fn remove_black_king_side(&mut self) {
-        self.BlackKingSide = false;
+        self.black_king_side = false;
     }
 
     pub fn get_black_queen_side(&self) -> bool {
-        self.BlackQueenSide
+        self.black_queen_side
     }
 
     pub fn remove_black_queen_side(&mut self) {
-        self.BlackQueenSide = false;
+        self.black_queen_side = false;
     }
 }

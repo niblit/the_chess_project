@@ -5,20 +5,20 @@ pub enum Team {
     White,
 }
 
-const BLACK_SHORT: &str = "b";
-const WHITE_SHORT: &str = "w";
-
 const BLACK_LONG: &str = "Black";
 const WHITE_LONG: &str = "White";
 
 impl Team {
-    pub fn as_player(&self) -> &str {
+    pub fn as_sentence(&self) -> &str {
         match self {
             Team::Black => BLACK_LONG,
             Team::White => WHITE_LONG,
         }
     }
 }
+
+const BLACK_SHORT: &str = "b";
+const WHITE_SHORT: &str = "w";
 
 impl fmt::Display for Team {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -35,8 +35,8 @@ mod tests {
 
     #[test]
     fn test_team_as_player() {
-        assert_eq!(Team::Black.as_player(), BLACK_LONG);
-        assert_eq!(Team::White.as_player(), WHITE_LONG);
+        assert_eq!(Team::Black.as_sentence(), BLACK_LONG);
+        assert_eq!(Team::White.as_sentence(), WHITE_LONG);
     }
 
     #[test]

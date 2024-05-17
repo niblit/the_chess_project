@@ -9,6 +9,26 @@ pub enum PieceType {
     Pawn,
 }
 
+const KING_LONG: &str = "King";
+const QUEEN_LONG: &str = "Queen";
+const ROOK_LONG: &str = "Rook";
+const BISHOP_LONG: &str = "Bishop";
+const KNIGHT_LONG: &str = "Knight";
+const PAWN_LONG: &str = "Pawn";
+
+impl PieceType {
+    pub fn as_sentence(&self) -> &str {
+        match self {
+            PieceType::King => KING_LONG,
+            PieceType::Queen => QUEEN_LONG,
+            PieceType::Rook => ROOK_LONG,
+            PieceType::Bishop => BISHOP_LONG,
+            PieceType::Knight => KNIGHT_LONG,
+            PieceType::Pawn => PAWN_LONG,
+        }
+    }
+}
+
 const KING_SHORT: &str = "k";
 const QUEEN_SHORT: &str = "q";
 const ROOK_SHORT: &str = "r";

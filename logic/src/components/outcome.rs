@@ -1,7 +1,9 @@
+use super::team::Team;
+
 pub enum Outcome {
-    Checkmate,
-    Resignation,
-    Timeout,
+    Checkmate(Team),
+    Resignation(Team),
+    Timeout(Team),
     Stalemate,
     InsufficientMaterial,
     FiftyMoveRule,

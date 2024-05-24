@@ -61,3 +61,58 @@ impl CastlingRights {
         self.black_queen_side = false;
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_default_castling_rights() {
+        let rights = CastlingRights::new();
+        assert!(rights.get_white_king_side());
+        assert!(rights.get_white_queen_side());
+        assert!(rights.get_black_king_side());
+        assert!(rights.get_black_queen_side());
+    }
+
+    #[test]
+    fn test_custom_castling_rights() {
+        let rights = CastlingRights::custom_start(true, false, false, true);
+        assert!(rights.get_white_king_side());
+        assert!(!rights.get_white_queen_side());
+        assert!(!rights.get_black_king_side());
+        assert!(rights.get_black_queen_side());
+    }
+
+    #[test]
+    fn test_remove_rights() {
+        let mut rights = CastlingRights::new();
+        rights.remove_white_king_side();
+
+        assert!(!rights.get_white_king_side());
+        assert!(rights.get_white_queen_side());
+        assert!(rights.get_black_king_side());
+        assert!(rights.get_black_queen_side());
+
+        rights.remove_white_queen_side();
+
+        assert!(!rights.get_white_king_side());
+        assert!(!rights.get_white_queen_side());
+        assert!(rights.get_black_king_side());
+        assert!(rights.get_black_queen_side());
+
+        rights.remove_black_king_side();
+
+        assert!(!rights.get_white_king_side());
+        assert!(!rights.get_white_queen_side());
+        assert!(!rights.get_black_king_side());
+        assert!(rights.get_black_queen_side());
+
+        rights.remove_black_queen_side();
+
+        assert!(!rights.get_white_king_side());
+        assert!(!rights.get_white_queen_side());
+        assert!(!rights.get_black_king_side());
+        assert!(!rights.get_black_queen_side());
+    }
+}

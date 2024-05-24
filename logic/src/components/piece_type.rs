@@ -54,6 +54,16 @@ mod tests {
     use super::*;
 
     #[test]
+    fn test_as_sentence() {
+        assert_eq!(PieceType::King.as_sentence(), KING_LONG);
+        assert_eq!(PieceType::Queen.as_sentence(), QUEEN_LONG);
+        assert_eq!(PieceType::Rook.as_sentence(), ROOK_LONG);
+        assert_eq!(PieceType::Bishop.as_sentence(), BISHOP_LONG);
+        assert_eq!(PieceType::Knight.as_sentence(), KNIGHT_LONG);
+        assert_eq!(PieceType::Pawn.as_sentence(), PAWN_LONG);
+    }
+
+    #[test]
     fn test_display() {
         assert_eq!(format!("{}", PieceType::King), KING_SHORT);
         assert_eq!(format!("{}", PieceType::Queen), QUEEN_SHORT);

@@ -34,7 +34,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_team_as_player() {
+    fn test_team_as_sentence() {
         assert_eq!(Team::Black.as_sentence(), BLACK_LONG);
         assert_eq!(Team::White.as_sentence(), WHITE_LONG);
     }

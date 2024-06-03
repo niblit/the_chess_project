@@ -2,6 +2,7 @@ use std::fmt;
 
 use super::team::Team;
 
+#[derive(Clone, Copy)]
 pub enum Outcome {
     Checkmate(Team),
     Resignation(Team),

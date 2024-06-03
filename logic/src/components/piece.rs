@@ -1,6 +1,7 @@
 use crate::components::{piece_type::PieceType, team::Team};
 use std::fmt;
 
+#[derive(Clone, Copy)]
 pub struct Piece {
     kind: PieceType,
     color: Team,

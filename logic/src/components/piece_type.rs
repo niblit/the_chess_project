@@ -1,5 +1,6 @@
 use std::fmt;
 
+#[derive(Clone, Copy)]
 pub enum PieceType {
     King,
     Queen,
@@ -54,7 +55,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_as_sentence() {
+    fn as_sentence() {
         assert_eq!(PieceType::King.as_sentence(), KING_LONG);
         assert_eq!(PieceType::Queen.as_sentence(), QUEEN_LONG);
         assert_eq!(PieceType::Rook.as_sentence(), ROOK_LONG);
@@ -64,7 +65,7 @@ mod tests {
     }
 
     #[test]
-    fn test_display() {
+    fn display() {
         assert_eq!(format!("{}", PieceType::King), KING_SHORT);
         assert_eq!(format!("{}", PieceType::Queen), QUEEN_SHORT);
         assert_eq!(format!("{}", PieceType::Rook), ROOK_SHORT);

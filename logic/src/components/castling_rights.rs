@@ -68,7 +68,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_default_castling_rights() {
+    fn new() {
         let rights = CastlingRights::new();
         assert!(rights.get_white_king_side());
         assert!(rights.get_white_queen_side());
@@ -77,7 +77,7 @@ mod tests {
     }
 
     #[test]
-    fn test_custom_castling_rights() {
+    fn custom_start() {
         let rights = CastlingRights::custom_start(true, false, false, true);
         assert!(rights.get_white_king_side());
         assert!(!rights.get_white_queen_side());
@@ -86,7 +86,7 @@ mod tests {
     }
 
     #[test]
-    fn test_remove_rights() {
+    fn remove_rights() {
         let mut rights = CastlingRights::new();
         rights.remove_white_king_side();
 

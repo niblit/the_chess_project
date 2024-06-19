@@ -36,7 +36,8 @@ mod tests {
                 PieceType::King,
             ] {
                 let piece = Piece { kind, color };
-                assert_eq!(piece.as_sentence(),
+                assert_eq!(
+                    piece.as_sentence(),
                     format!("{} {}", color.as_sentence(), kind.as_sentence())
                 );
             }
@@ -55,9 +56,7 @@ mod tests {
                 PieceType::King,
             ] {
                 let piece = Piece { kind, color };
-                assert_eq!(piece.to_string(),
-                    format!("{}{}", color, kind)
-                );
+                assert_eq!(piece.to_string(), format!("{}{}", color, kind));
             }
         }
     }

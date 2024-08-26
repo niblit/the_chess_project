@@ -19,10 +19,7 @@ impl Coordinates {
 
     pub fn from_usize(row: usize, col: usize) -> Option<Self> {
         if (0..8).contains(&row) && (0..8).contains(&col) {
-            Some(Self {
-                row,
-                col,
-            })
+            Some(Self { row, col })
         } else {
             None
         }
@@ -51,7 +48,6 @@ impl Coordinates {
         format!("{}{}", mappings.get(&self.col()).unwrap(), self.row() + 1)
     }
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -83,7 +79,7 @@ mod tests {
     fn row() {
         for row in 0..8 {
             for col in 0..8 {
-                let coords = Coordinates{row, col};
+                let coords = Coordinates { row, col };
                 assert_eq!(coords.row(), row);
             }
         }
@@ -93,7 +89,7 @@ mod tests {
     fn col() {
         for row in 0..8 {
             for col in 0..8 {
-                let coords = Coordinates{row, col};
+                let coords = Coordinates { row, col };
                 assert_eq!(coords.col(), col);
             }
         }
@@ -109,7 +105,11 @@ mod tests {
                 let coords = Coordinates::from_i32(row, col).unwrap();
                 assert_eq!(
                     coords.as_algebraic(),
-                    format!("{}{}", algebraic_cols[coords.col()], algebraic_rows[coords.row()])
+                    format!(
+                        "{}{}",
+                        algebraic_cols[coords.col()],
+                        algebraic_rows[coords.row()]
+                    )
                 );
             }
         }

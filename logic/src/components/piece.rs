@@ -1,13 +1,21 @@
 use crate::components::{piece_type::PieceType, team::Team};
 use std::fmt;
 
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub struct Piece {
     kind: PieceType,
     color: Team,
 }
 
 impl Piece {
+    pub fn kind(&self) -> PieceType {
+        self.kind
+    }
+
+    pub fn color(&self) -> Team {
+        self.color
+    }
+
     pub fn as_sentence(&self) -> String {
         format!("{} {}", self.color.as_sentence(), self.kind.as_sentence())
     }

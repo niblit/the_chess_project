@@ -6,11 +6,22 @@ pub struct Coordinates {
 }
 
 impl Coordinates {
-    pub fn from(row: i32, col: i32) -> Option<Self> {
+    pub fn from_i32(row: i32, col: i32) -> Option<Self> {
         if (0..8).contains(&row) && (0..8).contains(&col) {
             Some(Self {
                 row: row as usize,
                 col: col as usize,
+            })
+        } else {
+            None
+        }
+    }
+
+    pub fn from_usize(row: usize, col: usize) -> Option<Self> {
+        if (0..8).contains(&row) && (0..8).contains(&col) {
+            Some(Self {
+                row,
+                col,
             })
         } else {
             None
@@ -50,22 +61,22 @@ mod tests {
     fn from() {
         for row in 0..8 {
             for col in 0..8 {
-                let coords = Coordinates::from(row, col).unwrap();
+                let coords = Coordinates::from_i32(row, col).unwrap();
                 assert_eq!(coords.row as i32, row);
                 assert_eq!(coords.col as i32, col);
             }
         }
 
-        assert!(Coordinates::from(-1, -1).is_none());
-        assert!(Coordinates::from(-1, 0).is_none());
-        assert!(Coordinates::from(0, -1).is_none());
+        assert!(Coordinates::from_i32(-1, -1).is_none());
+        assert!(Coordinates::from_i32(-1, 0).is_none());
+        assert!(Coordinates::from_i32(0, -1).is_none());
 
-        assert!(Coordinates::from(8, 8).is_none());
-        assert!(Coordinates::from(8, 0).is_none());
-        assert!(Coordinates::from(0, 8).is_none());
+        assert!(Coordinates::from_i32(8, 8).is_none());
+        assert!(Coordinates::from_i32(8, 0).is_none());
+        assert!(Coordinates::from_i32(0, 8).is_none());
 
-        assert!(Coordinates::from(-1, 8).is_none());
-        assert!(Coordinates::from(8, -1).is_none());
+        assert!(Coordinates::from_i32(-1, 8).is_none());
+        assert!(Coordinates::from_i32(8, -1).is_none());
     }
 
     #[test]
@@ -95,7 +106,7 @@ mod tests {
 
         for row in 0..8 {
             for col in 0..8 {
-                let coords = Coordinates::from(row, col).unwrap();
+                let coords = Coordinates::from_i32(row, col).unwrap();
                 assert_eq!(
                     coords.as_algebraic(),
                     format!("{}{}", algebraic_cols[coords.col()], algebraic_rows[coords.row()])

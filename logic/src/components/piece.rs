@@ -1,14 +1,17 @@
-use crate::components::{piece_type::PieceType, team::Team};
-use std::fmt;
+use crate::components::{piece_kind::PieceKind, team::Team};
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub struct Piece {
-    kind: PieceType,
+    kind: PieceKind,
     color: Team,
 }
 
 impl Piece {
-    pub fn kind(&self) -> PieceType {
+    pub const fn new(kind: PieceKind, color: Team) -> Self {
+        Self { kind, color }
+    }
+
+    pub fn kind(&self) -> PieceKind {
         self.kind
     }
 
@@ -21,8 +24,8 @@ impl Piece {
     }
 }
 
-impl fmt::Display for Piece {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+impl std::fmt::Display for Piece {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}{}", self.color, self.kind)
     }
 }
@@ -30,18 +33,18 @@ impl fmt::Display for Piece {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use super::{PieceType, Team};
+    use super::{PieceKind, Team};
 
     #[test]
     fn as_sentence() {
         for color in [Team::White, Team::Black] {
             for kind in [
-                PieceType::Pawn,
-                PieceType::Knight,
-                PieceType::Bishop,
-                PieceType::Rook,
-                PieceType::Queen,
-                PieceType::King,
+                PieceKind::Pawn,
+                PieceKind::Knight,
+                PieceKind::Bishop,
+                PieceKind::Rook,
+                PieceKind::Queen,
+                PieceKind::King,
             ] {
                 let piece = Piece { kind, color };
                 assert_eq!(
@@ -56,12 +59,12 @@ mod tests {
     fn display() {
         for color in [Team::White, Team::Black] {
             for kind in [
-                PieceType::Pawn,
-                PieceType::Knight,
-                PieceType::Bishop,
-                PieceType::Rook,
-                PieceType::Queen,
-                PieceType::King,
+                PieceKind::Pawn,
+                PieceKind::Knight,
+                PieceKind::Bishop,
+                PieceKind::Rook,
+                PieceKind::Queen,
+                PieceKind::King,
             ] {
                 let piece = Piece { kind, color };
                 assert_eq!(piece.to_string(), format!("{}{}", color, kind));

@@ -4,5 +4,6 @@ mod coordinates;
 mod move_counter;
 mod outcome;
 mod piece;
-mod piece_type;
+mod piece_kind;
+mod square;
 mod team;

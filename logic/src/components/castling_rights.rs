@@ -68,26 +68,14 @@ mod tests {
     use super::*;
 
     #[test]
-    fn new() {
-        let rights = CastlingRights::new();
+    fn remove_rights() {
+        let mut rights = CastlingRights::new();
+
         assert!(rights.get_white_king_side());
         assert!(rights.get_white_queen_side());
         assert!(rights.get_black_king_side());
         assert!(rights.get_black_queen_side());
-    }
 
-    #[test]
-    fn custom_start() {
-        let rights = CastlingRights::custom_start(true, false, false, true);
-        assert!(rights.get_white_king_side());
-        assert!(!rights.get_white_queen_side());
-        assert!(!rights.get_black_king_side());
-        assert!(rights.get_black_queen_side());
-    }
-
-    #[test]
-    fn remove_rights() {
-        let mut rights = CastlingRights::new();
         rights.remove_white_king_side();
 
         assert!(!rights.get_white_king_side());

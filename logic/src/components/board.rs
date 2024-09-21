@@ -39,6 +39,19 @@ impl Board {
         }
     }
 
+    pub fn get_pieces_on_board(&self) -> Vec<(Coordinates, Piece)> {
+        let mut pieces_on_board = Vec::new();
+        for row in 0..8 {
+            for col in 0..8 {
+                if let Some(piece) = self.grid[row][col] {
+                    let coordinates = Coordinates::from_usize(row, col).unwrap();
+                    pieces_on_board.push((coordinates, piece));
+                }
+            }
+        }
+        pieces_on_board
+    }
+
     pub fn get(&self, coordinates: Coordinates) -> SquareType {
         self.grid[coordinates.row()][coordinates.col()]
     }
@@ -47,7 +60,7 @@ impl Board {
         self.grid[coordinates.row()][coordinates.col()] = Some(piece);
     }
 
-    pub fn unset(&mut self, coordinates: Coordinates) {
+    pub fn clear(&mut self, coordinates: Coordinates) {
         self.grid[coordinates.row()][coordinates.col()] = None;
     }
 }

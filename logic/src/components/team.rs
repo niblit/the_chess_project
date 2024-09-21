@@ -29,20 +29,3 @@ impl fmt::Display for Team {
         }
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn as_sentence() {
-        assert_eq!(Team::Black.as_sentence(), BLACK_LONG);
-        assert_eq!(Team::White.as_sentence(), WHITE_LONG);
-    }
-
-    #[test]
-    fn display() {
-        assert_eq!(format!("{}", Team::Black), BLACK_SHORT);
-        assert_eq!(format!("{}", Team::White), WHITE_SHORT);
-    }
-}

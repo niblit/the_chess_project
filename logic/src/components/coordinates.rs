@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub struct Coordinates {
     row: usize,
     col: usize,

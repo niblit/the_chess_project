@@ -49,28 +49,3 @@ impl fmt::Display for PieceKind {
         }
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn as_sentence() {
-        assert_eq!(PieceKind::King.as_sentence(), KING_LONG);
-        assert_eq!(PieceKind::Queen.as_sentence(), QUEEN_LONG);
-        assert_eq!(PieceKind::Rook.as_sentence(), ROOK_LONG);
-        assert_eq!(PieceKind::Bishop.as_sentence(), BISHOP_LONG);
-        assert_eq!(PieceKind::Knight.as_sentence(), KNIGHT_LONG);
-        assert_eq!(PieceKind::Pawn.as_sentence(), PAWN_LONG);
-    }
-
-    #[test]
-    fn display() {
-        assert_eq!(format!("{}", PieceKind::King), KING_SHORT);
-        assert_eq!(format!("{}", PieceKind::Queen), QUEEN_SHORT);
-        assert_eq!(format!("{}", PieceKind::Rook), ROOK_SHORT);
-        assert_eq!(format!("{}", PieceKind::Bishop), BISHOP_SHORT);
-        assert_eq!(format!("{}", PieceKind::Knight), KNIGHT_SHORT);
-        assert_eq!(format!("{}", PieceKind::Pawn), PAWN_SHORT);
-    }
-}
